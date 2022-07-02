@@ -1,4 +1,5 @@
-import re
+from utils import *
+
 
 SPAM_INDEX = 0
 HAM_INDEX = 1

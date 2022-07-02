@@ -3,7 +3,7 @@ SPAM_TAG = "SPAM"
 
 
 def read_classificaiton_from_file(filepath):
-    with open(filepath, "r", encoding = "utf-8") as file:
+    with open(filepath, "r", encoding="utf-8") as file:
         content = file.read()
         lines = content.split("\n")
         classification_dict = {}
