@@ -6,13 +6,6 @@ SPAM_INDEX = 0
 HAM_INDEX = 1
 
 
-# words
-# IPs   (re.compile('[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'))
-# links (re.compile('http://.{,20}\..{,15}\.'))
-# upper (re.compile('[A-Z]{10,}'))
-# marks (re.compile('[<!*?#%>]{3,}'))
-
-
 class NaiveBayesFilter:
 
     def __init__(self, pattern):
