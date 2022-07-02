@@ -28,4 +28,19 @@ class Filter:
         truth_dict = read_classification_from_file(train_dir + '/!truth.txt')
         corpus = Corpus(train_dir)
 
-        # for
+        filters = [getattr(self, attr) for attr in dir(self) if attr.endswith("Filter")]
+        for filter in filters:
+            filter.train(truth_dict, corpus)
+
+    def test(self, test_dir):
+        corpus = Corpus(test_dir)
+        result = HAM_TAG
+        filters = [getattr(self, attr) for attr in dir(self) if attr.endswith("Filter")]
+        for filename, body in corpus.emails():
+            for filter in filters:
+                result = filter.classify(body)
+                if result == SPAM_TAG:
+                    break
+            with open(test_dir + "/!prediction.txt", "a+", encoding="utf-8") as prediction:
+                prediction.write(filename + " " + result + "\n")
+
