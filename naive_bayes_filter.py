@@ -22,7 +22,7 @@ class NaiveBayesFilter:
 
         for filename, email_body in corpus.emails():
             filename_samples[filename] = set()
-            matches = pattern.findall(email_body)
+            matches = self.pattern.findall(email_body)
             for match in matches:
                 self.samples.add(match)
                 filename_samples[filename].add(match)
@@ -31,9 +31,9 @@ class NaiveBayesFilter:
                     samples_freqs[match] = [0, 0]
 
                 if truth_dict[filename] == 'SPAM':
-                    upper_freqs[match][SPAM_INDEX] += 1
+                    samples_freqs[match][SPAM_INDEX] += 1
                 elif truth_dict[filename] == 'OK':
-                    upper_freqs[match][HAM_INDEX] += 1
+                    samples_freqs[match][HAM_INDEX] += 1
 
         for sample in self.samples:
             self.samples_value[sample] = samples_freqs[sample][SPAM_INDEX] / (samples_freqs[sample][SPAM_INDEX] +
@@ -59,10 +59,10 @@ class NaiveBayesFilter:
                 if sample in email_body:
                     match_count += 1
                     value_count += self.samples_value[sample]
-            if count:
+            if match_count:
                 value_count /= match_count
 
-            if count > self.threshold:
+            if match_count > self.threshold:
                 return SPAM_TAG
             else:
                 return HAM_TAG

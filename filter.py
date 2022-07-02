@@ -13,7 +13,6 @@ marksPattern = '[<!*?#%>]{3,}'
 class Filter:
 
     def __init__(self):
-
         self.ipsFilter = NaiveBayesFilter(re.compile(ipsPattern))
         self.linksFilter = NaiveBayesFilter(re.compile(linksPattern))
         self.upperFilter = NaiveBayesFilter(re.compile(upperPattern))
@@ -21,7 +20,7 @@ class Filter:
         self.marksFilter = NaiveBayesFilter(re.compile(marksPattern))
 
     def train(self, train_dir):
-        truth_dict = read_classification_from_file(train_dir + '/!truth.txt')
+        truth_dict = read_classificaiton_from_file(train_dir + '/!truth.txt')
         corpus = Corpus(train_dir)
 
         filters = [getattr(self, attr) for attr in dir(self) if attr.endswith("Filter")]
@@ -41,4 +40,11 @@ class Filter:
 
             with open(test_dir + "/!prediction.txt", "a+", encoding="utf-8") as prediction:
                 prediction.write(filename + " " + result + "\n")
+
+if __name__ == '__main__':
+    my_filter = Filter()
+    my_filter.train("spam-data/1")
+    my_filter.test("spam-data/2")
+
+
 
