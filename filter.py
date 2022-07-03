@@ -14,10 +14,10 @@ class Filter:
 
     def __init__(self):
         self.ipsFilter = NaiveBayesFilter(re.compile(ipsPattern))
-        self.linksFilter = NaiveBayesFilter(re.compile(linksPattern))
-        self.upperFilter = NaiveBayesFilter(re.compile(upperPattern))
-        self.lowerFilter = NaiveBayesFilter(re.compile(lowerPattern))
-        self.marksFilter = NaiveBayesFilter(re.compile(marksPattern))
+        #self.linksFilter = NaiveBayesFilter(re.compile(linksPattern))
+        #self.upperFilter = NaiveBayesFilter(re.compile(upperPattern))
+        #self.lowerFilter = NaiveBayesFilter(re.compile(lowerPattern))
+        #self.marksFilter = NaiveBayesFilter(re.compile(marksPattern))
 
     def train(self, train_dir):
         truth_dict = read_classificaiton_from_file(train_dir + '/!truth.txt')
