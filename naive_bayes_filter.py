@@ -1,5 +1,4 @@
 from utils import *
-import re
 from corpus import Corpus
 
 SPAM_INDEX = 0
@@ -62,7 +61,7 @@ class NaiveBayesFilter:
             if match_count:
                 value_count /= match_count
 
-            if match_count > self.threshold:
+            if value_count > self.threshold:
                 return SPAM_TAG
             else:
                 return HAM_TAG

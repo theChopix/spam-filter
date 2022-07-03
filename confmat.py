@@ -21,7 +21,7 @@ class BinaryConfusionMatrix:
             self.tn += 1
         elif truth == self.neg_tag and prediction == self.pos_tag:
             self.fp += 1
-        else:
+        elif truth == self.pos_tag and prediction == self.neg_tag:
             self.fn += 1
 
     def check_input(self, value):

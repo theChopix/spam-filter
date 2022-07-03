@@ -14,9 +14,10 @@ def compute_quality_for_corpus(corpus_dir):
     cm = BinaryConfusionMatrix(pos_tag=SPAM_TAG, neg_tag=HAM_TAG)
     cm.compute_from_dicts(truth_dict, prediction_dict)
 
+    print(cm.as_dict())
     return quality_score(cm.tp, cm.tn, cm.fp, cm.fn)
 
 
 if __name__ == '__main__':
-    result = compute_quality_for_corpus('1')
+    result = compute_quality_for_corpus('spam-data/2')
     print(result)
