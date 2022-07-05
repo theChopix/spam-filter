@@ -24,6 +24,7 @@ Using naive bayes classifier technique applied on given training data-set, progr
 
 `quality.py` ▶️
 - contains methods testing the quality of classification (by giving path to the classification-file)
+  - using formula (tp + tn) / (tp + tn + 10 * fp + fn) where t = true; f = false; p = positive; n = negative
 
 <hr />
 
