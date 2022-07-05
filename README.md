@@ -11,7 +11,7 @@ Using naive bayes classifier technique applied on given training data-set, progr
 - contains the `read_classification_from_file` method which transforms the file of classification (<file_name> <spam/ham>) into dictionary preserving the same information
 
 <b>`naive-bayes-filter.py`</b>  
-- contains the `NaiveBaysFilter` class which takes a pattern (can be regular expression) that is applied in it's methods to determine from the training data-set characteristics of spam-emails based on the pattern (and it's "instances") 
+- contains the `NaiveBaysFilter` class <b>which takes a pattern (can be regular expression)</b> that is applied in it's methods to determine from the training data-set characteristics of spam-emails based on the pattern (and it's "instances") 
   - together with it's methods `train` (concerning the training data-set) and `classify` (concerning the test data-set)
   
 <b>`filter.py`</b> ▶️
