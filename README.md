@@ -19,9 +19,11 @@ Using naive bayes classifier technique applied on given training data-set, progr
   - creates <b>instances of `NaiveBayesFilter` class</b> in it's constructor using a regular-expression pattern for each of an instance (one can be for IP links, other for words written in lower-case...)
   - `train` these instances (via `train` method in `NaiveBayesFilter` and `test` them (via `classify` above)
 
-`confmat.py`  
+`confmat.py` 
+- contains the `BinaryConfusionMatrix` class together with it's methods providing operations over the <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a>
 
 `quality.py`  
+- contains methods testing the quality of classification (by giving path to the file of classification)
 
 
 
