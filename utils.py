@@ -2,6 +2,7 @@ HAM_TAG = "OK"
 SPAM_TAG = "SPAM"
 
 
+# transforms content of classification-file into dictionary preserving the same information
 def read_classification_from_file(filepath):
     with open(filepath, "r", encoding="utf-8") as file:
         content = file.read()
