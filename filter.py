@@ -24,6 +24,9 @@ class Filter:
     # trains each filter instance in self-attributes
     def train(self, train_dir):
         truth_dict = read_classification_from_file(train_dir + '/!truth.txt')
+        for i in truth_dict:
+            print(i)
+
         corpus = Corpus(train_dir)
 
         filters = [getattr(self, attr) for attr in dir(self) if attr.endswith("Filter")]
